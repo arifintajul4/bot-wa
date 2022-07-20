@@ -92,17 +92,13 @@ const ShopeeAfiliate = async (chat, message) => {
         const MY_GROUP = JSON.parse(process.env.MY_GROUP);
         if (message.hasMedia) {
           const media = await message.downloadMedia();
-          MY_GROUP.forEach((el) => {
-            client.sendMessage(el, media, {
-              caption: newMessage,
-            });
-          });
+          if (media) {
+            MY_GROUP.map((el) =>
+              client.sendMessage(el, media, { caption: newMessage })
+            );
+          }
         } else {
-          MY_GROUP.forEach((el) => {
-            client.sendMessage(el, media, {
-              caption: newMessage,
-            });
-          });
+          MY_GROUP.map((el) => client.sendMessage(el, newMessage));
         }
       }
     }
