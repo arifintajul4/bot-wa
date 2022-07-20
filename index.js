@@ -51,17 +51,17 @@ const handleShortLink = async (link) => {
 const ShopeeAfiliate = async (chat, message) => {
   if (
     message.body.includes("https://shope.ee") &&
-    chat?.id?._serialized !== "120363025283080815@g.us"
+    chat.id._serialized !== "120363025283080815@g.us"
   ) {
     const url = findUrl(message.body);
-    if (url?.length) {
+    if (url.length) {
       const newShortLink = await handleShortLink(url);
-      if (newShortLink?.length) {
+      if (newShortLink.length) {
         let newMessage = message.body;
-        url?.forEach((el, idx) => {
-          newMessage = newMessage?.replace(
+        url.forEach((el, idx) => {
+          newMessage = newMessage.replace(
             el,
-            newShortLink[idx]?.data?.short_link
+            newShortLink[idx].data.short_link
           );
         });
         if (message.hasMedia) {
@@ -93,7 +93,7 @@ const PersonalUse = (chat, message) => {
 };
 
 client.on("message", async (message) => {
-  let chat = await message.getChat();
+  const chat = await message.getChat();
   ShopeeAfiliate(chat, message);
   PersonalUse(chat, message);
 });
