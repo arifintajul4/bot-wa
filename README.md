@@ -7,19 +7,11 @@ bot sederhana untuk mengirim ulang link product shopee dari group wa target ke g
 
 ### Installing
 
-* clone project
 ```
 git clone https://github.com/arifintajul4/bot-wa.git
-```
-* masuk ke folder project
-```
 cd bot-wa
-```
-* install dependecies
-```
 npm install
 ```
-
 
 ### Executing program
 
