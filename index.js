@@ -9,8 +9,10 @@ require("dotenv").config();
 // Use the saved values
 const client = new Client({
   authStrategy: new LocalAuth(),
-  headless: true,
-  args: ["--no-sandbox"],
+  puppeteer: {
+    headless: true,
+    args: ["--no-sandbox"],
+  },
 });
 
 function hash(string) {
