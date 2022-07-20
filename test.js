@@ -2,6 +2,7 @@ const { gql, GraphQLClient, request } = require("graphql-request");
 const { createHash } = require("crypto");
 const moment = require("moment");
 const { json } = require("express");
+const { Console } = require("console");
 require("dotenv").config();
 
 function hash(string) {
@@ -47,7 +48,8 @@ const requestGrapQl = async () => {
 };
 
 const main = () => {
-  requestGrapQl();
+  // requestGrapQl();
+  console.log(process.env.MY_GROUP);
 };
 
 //get Current Epoch Unix Timestamp
